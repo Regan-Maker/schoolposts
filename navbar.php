@@ -13,7 +13,9 @@ if (isset($_SESSION['username']) && $_SESSION['username'] !== '') {
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
   <div class="container-fluid">
-    <a class="navbar-brand fw-bold" href="index.php">SchoolStatus</a>
+    <a class="navbar-brand schoolpost-brand" href="index.php" aria-label="Schoolpost home">
+      <img src="images/schoolpost-logo.png" alt="Schoolpost. Connect. Learn. Communicate.">
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

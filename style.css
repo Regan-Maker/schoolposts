@@ -196,6 +196,26 @@
     }
 }
 
+.schoolpost-brand {
+    position: relative;
+    display: block;
+    flex: 0 1 auto;
+    width: clamp(180px, 55vw, 260px);
+    aspect-ratio: 65 / 24;
+    padding: 0;
+    overflow: hidden;
+}
+
+.schoolpost-brand img {
+    position: absolute;
+    top: -64.6%;
+    left: -25.4%;
+    width: 150%;
+    max-width: none;
+    height: auto;
+    mix-blend-mode: multiply;
+}
+
 .whatsapp-float {
   position: fixed;
   width: 60px;
