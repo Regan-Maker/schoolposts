@@ -4,7 +4,9 @@
       <div class="footer-brand">
         <a href="index.php" class="footer-logo">SchoolStatus</a>
         <p>Helping schools share updates, build trust, and stay connected with their communities.</p><br>
-        <a href="logout.php" class="btn btn-outline-danger">Logout</a>
+        <?php if (!empty($_SESSION['email'])): ?>
+          <a href="logout.php" class="btn btn-outline-danger">Logout</a>
+        <?php endif; ?>
       </div>
       <div class="footer-links">
         <h2>Explore</h2>

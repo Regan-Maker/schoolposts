@@ -1,16 +1,19 @@
+
 <?php
 
-$server = "mysql-1020ea9e-schoolposts.c.aivencloud.com"; 
-$host = "mysql-1020ea9e-schoolposts.c.aivencloud.com";
-$port = "17563";
-$user = "avnadmin";
-$password = "AVNS_BsvAsQOA5ZunMM4Kos_";
-$database = "defaultdb";
+$dbHost = getenv('DB_HOST') ?: 'localhost';
+$dbUser = getenv('DB_USER') ?: 'root';
+$dbPassword = getenv('DB_PASSWORD');
+$dbPassword = $dbPassword === false ? '' : $dbPassword;
+$dbName = getenv('DB_NAME') ?: 'attendance';
+$dbPort = getenv('DB_PORT');
+$dbPort = $dbPort === false || $dbPort === '' ? 3306 : (int) $dbPort;
 
-$con = mysqli_init();
-mysqli_ssl_set($con, NULL, NULL, NULL, NULL, NULL);
-if (!mysqli_real_connect($con, $host, $user, $password, $database, $port,NULL, MYSQLI_CLIENT_SSL)) {
-    die("Connection failed: " . mysqli_connect_error());
+try {
+    $con = new mysqli($dbHost, $dbUser, $dbPassword, $dbName, $dbPort);
+    $con->set_charset('utf8mb4');
+} catch (mysqli_sql_exception $exception) {
+    error_log('Database connection failed: ' . $exception->getMessage());
+    http_response_code(500);
+    die('Database connection failed.');
 }
-
-?>
